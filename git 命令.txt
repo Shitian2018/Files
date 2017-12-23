@@ -1,0 +1,58 @@
+git 命令
+《Git权威指南》
+目录  页码+30  ,目录第一页： 28+13, 28+页码
+0. 安装和使用Git  -cygWin（p59）
+
+1、查看windows的磁盘路径
+--68   mount
+
+2、cygpath 改变Windows目录与cygwin中的目录切换
+
+ p66   cygpath  -u g:   (例如：cygpath -u  c：\\windowns)
+       cygpath -w ~/
+
+3、查看运行环境的字符集
+--68   locale
+       git status -s
+       git config --global core.quotepath false
+
+4、安装 msysGit（  P73 ）
+
+5、Cygwin 软件版本号（P66）
+ cygcheck -c cygwin
+
+ 6、创建版本库（P86）
+   git -version
+   git config --global user.name ""
+   git config --global user.email "48128489@qq.com"
+    设置一些Git的别名
+     sudo git config --system alias.st status
+     本用户的全局别名设置
+     git config --global alias.st status
+     开启颜色显示
+      git config --global color.ui true
+
+      创建初始化库  P87
+
+      显示版本库.git目录所在的位置 P90
+      git rev-parse --git-dir
+
+      显示工作区根目录 p90
+      Git rev-parse --show-toplevel
+
+      相对于工作区根目录的相对目录
+       git rev-parse --show-prefix
+
+      显示从当前目录（cd）后退（up）到工作区的根的深度
+      git rev-parse --show-cdup
+
+      git config命令的各参数有何区别 p91
+
+      查看当前用户及邮箱 p93
+      git config user.name
+      git config user.email
+
+      Git别名设置 p96
+      git config --global alias.ci "commit -s"
+
+

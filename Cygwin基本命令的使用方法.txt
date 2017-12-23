@@ -1,0 +1,185 @@
+
+: 
+以默认方式显示当前目录文件列表  
+–a #显示所有文件包括隐藏文件  
+–l #显示文件属性，包括大小，日期，符号连接，是否可读写及是否可执行   
+不显示文字颜色,将所有so文件记录到obj文件中  
+ 
+切换到当前目录下的dir目录 cd / #切换到根目录  
+切换到到上一级目录  
+切换到上二级目录  
+切换到用户目录，比如是root用户，则切换到/root下  
+  
+删除某一个文件  
+删除当前目录下叫dir的整个目录  
+  
+将文件source 复制为 target  
+将/root下的文件source复制到当前目录  
+–av soure_dir target_dir #将整个目录复制，两目录完全一样  
+–fr source_dir target_dir #将整个目录复制，并且是以非链接方式复制，当source目录带
+ 
+  
+将文件source更名为target  
+  
+比较目录1与目录2的文件列表是否相同，但不比较文件的实际内容，不同则
+ diff file1 file2 #比较文件1与文件2的内容是否相同，如果是文本格式的文件，则将不
+  
+比较文件，显示两个文件不相同的内容 
+  
+显示一串字符  
+显示不连续的字符串  
+ 
+显示文件的内容，和DOS的type相同  
+显示文件的内容并传输到more程序实现分页显示，使用命令less file可实现
+  
+分页命令，一般通过管道将内容传给它，如ls | more  
+  
+将环境变量LC_ALL的值设为zh_CN.GB2312  
+DISPLAY=0:0 #通过该设置，当前字符终端下运行的图形程序可直接运行于Xserver 
+显示当前日期时间  
+设置系统时间为20:30:30  
+设置系统时期为2003-3-5 
+–r #对系统Bios中读取时间参数  
+–w #将系统时间(如由date设置的时间)写入Bios 
+----------------------------------------------------------------------   
+掉CDROM并将光碟弹出，但cdrom不能处于busy的状态，否则无效  
+  
+计算当前目录的容量  
+计算/root目录的容量并以M为单位  
+在/path目录下查找看是否有文件file  
+“chars” #在当前目录的所有文件查找字串chars，并忽略大小写，-i为大小写，-r
+  
+  
+编辑文件file  
+原基本使用及命令：   
+ctrl+c， 然后输入:x(退出),:x!(退出并保存) :w(写入文件),:w!(不询问
+， :r file(读文件file) ,:%s/oldchars/newchars/g(将所有字串oldchars换成
+这一类的命令进行操作  
+ 
+读取关于ls命令的帮助  
+读取关于ls命令的帮助并通过grep程序在其中查找color字串  
+  
+运行Linux图形有环境  
+只运行X图形server 
+  
+重新启动计算机  
+关闭计算机  
+关闭所有应用程序和服务，进入纯净的操作环境  
+重新启动应用及服务  
+重新启动计算机  
+  
+  
+ 
+  
+将文件file.tgz解压  
+将文件file.tgz解压到target_path目录下  
+将文件source_path压缩为file.tgz  
+将目录directory打包成不压缩的directory.tar  
+将覆盖原文件生成压缩的 directory.tar.gz  
+覆盖原文件解压生成不压缩的 directory.tar。  
+可将不压缩的文件解包 
+  
+显示kernle启动及驱动装载信息  
+显示操作系统的类型  
+显示操作系统内核的version  
+  
+显示file文件中的ASCII字符内容 
+  
+安装程序program并显示安装进程  
+将rpm格式的文件转换成tarball格式  
+  
+切换到超级用户  
+在tty4即alt+F4终端等待用户登陆或直接登陆开启一个shell  
+将file文件设置为可执行，脚本类文件一定要这样设置一个，否则得用bash 
+才能执行  
+将文件file设置为可读写  
+将/dir目录设置为user所有  
+  
+创建块设备hda1，主设备号为3，从设备号为1，即master硬盘的的
+  
+创建字符设备tty1,主设备号为4，众设备号为1，即第一个tty终端  
+  
+在/tmp下创建一个临时文件running，重新启动后消失  
+  
+系统挂起9秒钟的时间  
+  
+或 cups stop #停止打印服务程序  
+或 cups start #启动打印服务程序 
+或 cups restart #重新启动打印服务程序  
+打印文件file.txt  
+  
+就像执行了dos的fdisk一样  
+比fdisk界面稍为友好些  
+把/dev/hda1装载到 /mnt目录  
+显示文件系统装载的相关信息   
+将光驱加载到/mnt/cdrom目录  
+ 
+#将windows的的共享目录加载到/mnt/smb目录，用
+tomlinux  
+将nfs服务的共享目录 
+加载到/mnt/nfs目录 umount /mnt #将/mnt目录卸载，/mnt目录必须处于空闲状态  
+  
+将/dev/hda1设备卸载，设备必须处于空亲状态  
+将cache中的内容与磁盘同步，在Linux中复制文件，一般要系统空闲才去写文件 
+  
+检查/dev/hda1是否有文件系统错误，提示修复方式  
+检查/dev/hda1是否有错误，如果有则自动修复  
+检查错误，所有提问均于yes方式执行  
+检查磁盘是否有坏区  
+格式化/dev/hda1为ext2格式  
+格式化/dev/hda1为minix格式文件系统  
+格工化/dev/hda9为Linux swap格式 
+将swap分区装载当作内存来用  
+将swap分区卸载  
+  
+运行lilo程序，程序自动查找/etc/lilo.conf并按该配置生效  
+程序按/root/lilo.conf配置生效  
+在Linux shell状态下运行boot loader设置程序  
+安装grub磁盘引导程序，成功后升级内核无须像lilo一样要重新启动系统，只
+/etc/grub.conf即可实现新引导配置  
+显示kernel的根分区信息  
+bzImage /dev/hda1 #将kernel的根分区设置为/dev/hda1，这在没有lilo等引导程序的系
+.  
+  
+if=/dev/fd0 of=floppy.fd #将软盘的内容复制成一个镜像，功能与旧石器时代常用的
+相同  
+生成一个大小为1M的块设备，可以把它当
+  
+将块设备格式化为ext2格式  
+将init.rd格式的root.ram的内容导入内存  
+装载到/mnt 目录  
+  
+将hello.c编译成名为a.out二进制执行文件  
+将hello.c编译成名为hello的二进制执行文件  
+将hello.c编译成名为hello的二进制静态执行文件 
+显示程序所使用了哪些库  
+将程序中的符号表及无用的调试信息去掉，可以小很多  
+ strace netscape #跟踪程序netscape
+
+下，程序干了什么东东一目了然。 ps #显示当前系统进程信息 ps –ef #显示系统所
+ kill -9 500 #将进程编号为500的程序干掉 killall -9 netscape #将所有名字为
+的程序杀死，kill不是万能的，对僵死的程序则无效。 top #显示系统进程的活动情
+CPU资源百分比来分 free #显示系统内存及swap使用情况 time program #在
+程序结束后，将计算出program运行所使用的时间 
+ chroot . #将根目录切换至当前目录,
+统时使用 chroot /tomlinux #将根目录切换至/tomlinux目录 chroot /tomlinux 
+将根目录切换至/tomlinux并执行sbin/init adduser id #增加一个叫id的用户 userdel 
+增除叫id的用户 userlist #显示已登陆的用户列表 passwd id #修改用户id的密码 passwd 
+root #将root用户的密码删除 chown id /work #指定/work目录为id用户所拥有
+ ifconfig eth0 192.168.1.1 netmask 
+#设置网卡1的地址192.168.1.1，掩码为255.255.255.0，不写netmask参数则
+255.255.255.0 ifconfig eth0:1 192.168.1.2 #捆绑网卡1的第二个地址为192.168.1.2 
+捆绑网卡1的第二个地址为192.168.1.x ifconfig down eth1 #关闭
+使其停止工作 hostname -F tomlinux.com #将主机名设置为tomlinux.com route #
+ route add default gw 192.168.1.1 metric 1 #设置192.168.1.1为默认的
+ route del default #将默认的路由删除 dhcp #启动dhcp服务 dhclient #启动dhcp终端并
+IP地址 ping 163.com #测试与163.com的连接 ping 202.96.128.68 #测试与IP 202。
+的连接 ----------------------------------------------------------------------  probe rtl8139 #检
+rtl8139.o是否正常工作 lsmod #显示已装载的驱动程序 insmod rtl8139.o #装载
+rtl8139.o insmod sb.o io=0x280 irq=7 dma=3 dma16=7 mpu_io=330 #装载驱动程序
+irq,dma参数 rmmod rtl8139 #删除名为rtl8139的驱动模块 gpm -k #停止字符
+态下的mouse服务 gpm -t ps2 #在字符状态下以ps2类型启动mouse的服务
+ telnet 192.168.1.1 #登陆IP为
+的telnet服务器 telnet iserver.com #登陆域名为iserver.com的telnet服务器 ftp 
+或 ftp iserver.com #登陆到ftp服务 Linux开发中的常用命令(cygwin环境也同样
+)   
