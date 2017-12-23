@@ -48,6 +48,24 @@ git 命令
 
       git config命令的各参数有何区别 p91
 
+      编辑config文件命令
+      git config -e
+      git config --system
+      git config --global
+
+      查看config文件
+      cat
+
+      读取config文件
+     命令格式： git config <section>.<key>
+      git config core.bare
+
+-----在文件名和路径名中包含中文的时候， git status 的显示是这样的  "\344\275\240\345\245\275.txt"：告诉 git 不对 0x80 以上的字符进行转义即可使用如下设置(http://blog.csdn.net/wty__/article/details/53997786)
+      git config --global core.quotepath fasle
+
+
+
+
       查看当前用户及邮箱 p93
       git config user.name
       git config user.email

@@ -1,0 +1,49 @@
+5.1 换行符的问题 autocrlf and safecrlf
+
+Windows(\r\n)、Linux(\n)和MacOS(\r)三个主流系统的换行符各不相同，这样在跨平台合作的时候就容易出现换行符的问题。
+
+Git提供了 autocrlf 和 safecrlf 两个参数来解决这个问题。但这两个参数如果没用好，就会影响开发。
+
+例如，出现这种情况：
+
+A和B两个开发人员，A使用LF(\n)做换行符，B使用CRLF(\r\n)做换行符，且都没有开启 autocrlf 参数，那么A在迁出B的文件，并使用自己的编辑器打开之后就会发现，虽然没有对文件做任何修改，但它的状态是modified。这是由于A的编辑器自动将B的文件中的所有换行符替换成了(LF)，这与版本库中的(CRLF)不同。
+
+让我们来看看 autocrlf 参数的作用：
+
+# 签出时将换行符转换成CRLF，签入时转换回 LF。
+git config --global core.autocrlf true
+
+#签出时不转换换行符，签入时转换回 LF
+git config --global core.autocrlf input
+
+#签出签入均不转换
+git config --global core.autocrlf false
+
+
+这些选项在TorgoiseGit中也可以设置。
+
+我的建议是在无论在什么系统下编程，都把所有人的编辑器的换行符模式设置成Unix格式，然后把autocrlf设置成false，这样一劳永逸。 
+毕竟除了Windows记事本这类软件外，已经很少有文本编辑器不支持换行符设置了。
+
+如果你把换行符搞乱了，在一个文件中既包含windows风格的换行符也包含unix风格换行符，那么 safecrlf 就可以发挥作用了：
+
+# 拒绝提交包含混合换行符的文件
+git config --global core.safecrlf true
+
+# 允许提交包含混合换行符的文件
+git config --global core.safecrlf false 
+
+# 提交包含混合换行符的文件时候给出警示
+git config --global core.safecrlf warn
+1# 签出时将换行符转换成CRLF，签入时转换回 LF。
+git config --global core.autocrlf true
+
+#签出时不转换换行符，签入时转换回 LF
+git config --global core.autocrlf input
+
+#签出签入均不转换
+git config --global core.autocrlf false
+
+http://blog.csdn.net/wty__/article/details/53997786
+
+5.2 文件权限问题 755 and 664
