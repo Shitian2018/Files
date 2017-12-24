@@ -131,5 +131,7 @@ To github.com:Shitian2018/Files.git
  * [new branch]      master -> master
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 
-事天@Tinkering-ST MINGW32 /g/cygwin64/home/demo_a (master)
-$
+中文设置的问题
+
+修改中文显示问题 “ modified:   "git \345\221\275\344\273\244.txt"
+git config --global core.quotepath false
