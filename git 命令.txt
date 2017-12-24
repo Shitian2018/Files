@@ -73,4 +73,63 @@ git 命令
       Git别名设置 p96
       git config --global alias.ci "commit -s"
 
+利用命令“ssh-keygen -t rsa -C "48128489@qq.com" 生成SSH密匙（id_rsa和id_rsa.pub）后
+ssh 测试
+ssh -t git@github.com
 
+$ ssh -i ~/.ssh/id_rsa git@github.com
+
+(4)补充
+①SSH配置文件ssh_config在自己本地的路径：
+    C:\Users\Administrator\AppData\Local\GitHub\PortableGit_6d98349f44ba975cf6c762a720f8259a267ea445\etc\ssh
+②密匙文件的存放路径：
+    C:\Users\Administrator\.ssh
+③ssh_config的原文件（有误的版本）：
+Host *
+StrictHostKeyChecking no
+UserKnownHostsFile=/dev/null
+
+
+Host github.com
+StrictHostKeyChecking no
+UserKnownHostsFile=/dev/null
+IdentityFile=~/.ssh/github_rsa ④重装Github for windows 2.0后的新发现（重要）。
+    为了确保正确性，自己将本机的Github for Window 2.0卸载并且重装了一遍，发现SSH的配置文件ssh_config中的“IdentityFile”依然是“~/.ssh/github_rsa”。
+而重装后的密匙文件的存放路径（C:\Users\Administrator\.ssh）下，有四个密匙文件，分别是github_rsa和github_rsa.pub，id_rsa和id_rsa.pub，
+这样，用户就不用自己新建密匙文件了，只用将“github_rsa.pub”中的内容上传到Github网站的个人SSH管理中即可。
+之后，在本地与Remote端进行网络连通性测试，发现可以联通。
+这样，考虑到修改软件原有配置信息所带来的隐患，笔者就不推荐自己手动修改SSH的配置文件ssh_config中的“IdentityFile”字段这个方法了。
+
+
+【解决方法】
+方法一：
+   在生成新的密匙文件后，若新生成的密匙文件名字为“id_rsa”，则将ssh_config配置文件中的“IdentityFile”项的值改为“~/.ssh/id_rsa”
+方法二：
+    将新生成的密匙文件名字改为“github_rsa”，从而与ssh_config配置文件中的“IdentityFile”项的值相同。
+方法三：
+    重装Github for Window 2.0，不用新建密匙文件，而是用Github自带的“github_rsa.pub”文件。
+总之，不论方法一，放法二还是方法三，一定要保持新生成的密匙文件的名字同“ssh_config”中“IdentityFile”字段的值一致即可。
+
+【参考文档】
+(1)原文链接：http://stackoverflow.com/questions/2127104/permission-denied-publickey-error-using-git-on-windows-7
+
+http://blog.itpub.net/25851087/viewspace-1262468/
+
+事天@Tinkering-ST MINGW32 /g/cygwin64/home/demo_a (master)
+$ git remote add origin git@github.com:Shitian2018/Files.git
+fatal: remote origin already exists.
+
+事天@Tinkering-ST MINGW32 /g/cygwin64/home/demo_a (master)
+$ git push -u origin master
+Counting objects: 29, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (26/26), done.
+Writing objects: 100% (29/29), 7.72 KiB | 718.00 KiB/s, done.
+Total 29 (delta 10), reused 0 (delta 0)
+remote: Resolving deltas: 100% (10/10), done.
+To github.com:Shitian2018/Files.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+事天@Tinkering-ST MINGW32 /g/cygwin64/home/demo_a (master)
+$

@@ -4,6 +4,13 @@ git is free software distribute under gpl
 °¡°¡°¡121233
 
 dafdafd
+/g/git/ssh-key/id_rsa
 
 fdsafd
 one changed
+
+Enter same passphrase again:
+Your identification has been saved in /g/git/ssh-key/id_rsa.
+Your public key has been saved in /g/git/ssh-key/id_rsa.pub.
+The key fingerprint is:
+SHA256:EZuoS791T40nn+BJTCnLE723IuohJ88tSPzXH5OnC+s 48128489@qq.com
